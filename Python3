@@ -1,0 +1,15 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+#        if len(matrix) == 0: return []
+#        if len(matrix) == 1: return matrix.pop(0)
+#        else:
+#            result = matrix.pop(0)
+#            return result + self.spiralOrder([[matrix[i][j] for i in range(len(matrix))] for j in range(len(matrix[0])-1, -1, -1)])
+        
+        result = []
+        
+        while matrix:
+            result.extend(matrix.pop(0))
+            matrix = [*zip(*matrix)][::-1]
+        
+        return result
